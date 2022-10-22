@@ -24,9 +24,9 @@ binprefix =
 
 bindir = $(prefix)/bin
 
-SRCS_C = main.cpp
+SRCS_C = main.cpp typefight.cpp
 SRCS = $(SRCS_C)
-OBJS = $(SRCS_C:.c=.o)
+OBJS = $(SRCS_C:.cpp=.o)
 
 ## add README and LICENSE to this
 AUX = 
@@ -65,5 +65,7 @@ distclean: realclean
 
 typefight: $(OBJS)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $^ $(LIBS) -o $@
+
+main.o: typefight.o
 
 ## main.o: templ.o

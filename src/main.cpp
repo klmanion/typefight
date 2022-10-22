@@ -7,17 +7,26 @@
 #include <clocale>
 #include <iostream>
 #include <ncurses.h>
+#include "typefight.h"
 
 using namespace std;
+
+__BEGIN_DECLS
+void 	ncurses_initialize (void) __attribute__((constructor));
+void 	ncurses_deinitialize (void) __attribute__((destructor));
+__END_DECLS
 
 int
 main(
     int		argc,
     char *const	argv[])
 {
-	int ch;
-	int y,x;
+	return Typefight.begin();
+}
 
+void 
+ncurses_initialize()
+{
 	setlocale(LC_ALL, "");
 
 	initscr();
@@ -27,42 +36,15 @@ main(
 	intrflush(stdscr, FALSE);
 	keypad(stdscr, TRUE);
 
-	y = x = 0;
+	return;
+}
 
-	for (bool running=true; running; )
-	    {
-		switch ((ch=getch())) {
-		case ERR:	/* no input */
-			break;;
-
-		case KEY_F(1):
-			running = false;
-			break;;
-
-		case 'j':
-			++y;
-			break;;
-
-		case 'k':
-			--y;
-			break;;
-		
-		case 'h':
-			--x;
-			break;;
-		
-		case 'l':
-			++x;
-			break;;
-		}
-
-		clear();
-		mvaddch(y,x, 'o');
-	    }
-
+void 
+ncurses_deinitialize()
+{
 	endwin();
 
-	return EXIT_SUCCESS;
+	return;
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */
