@@ -14,6 +14,7 @@ int
 typefight()
 {
 	int ch;
+	char s[80];
 	Entity hero(0,0);
 	Keymap keymap;
 	keymap.keybind_add(Keybind("j", [&]() {hero.move(1,0); return 1;}));
@@ -30,7 +31,9 @@ typefight()
 			break;;
 
 		default:
-			keymap.invoke(Keyseq(to_string(ch)));
+			s[0] = (char)ch & 0x7F;
+			s[1] = '\0';
+			keymap.invoke(Keyseq(s));
 			break;;
 		}
 

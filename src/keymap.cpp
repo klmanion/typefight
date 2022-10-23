@@ -40,6 +40,9 @@ int
 Keymap::invoke(
     const Keyseq	&kseq) const
 {
+#ifdef DEBUG
+			std::cerr << "invoke: " << kseq.to_string() << std::endl;
+#endif /* !DEBUG */
 	for (auto it = _kbds.begin(); it != _kbds.end(); ++it)
 	    {
 		if (*it == kseq)
