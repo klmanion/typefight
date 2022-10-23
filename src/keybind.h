@@ -10,15 +10,21 @@
 #include "keyseq.h"
 #include "command.h"
 
+using std::string;
+
 class Keybind
 {
 	Keyseq	_seq;
 	Command	_com;
+
 public:
-	Keybind (const Keyseq seq,const Command com)
+	Keybind (const Keyseq &seq,const Command &com)
 		: _seq(seq), _com(com) {}
-	Keybind (const char *const cstr,const Command com)
+	Keybind (const string &str,const Command &com)
+		: Keybind(Keyseq(str), com) {}
+	Keybind (const char *const cstr,const Command &com)
 		: Keybind(string(cstr), com) {}
+
 	~Keybind();
 
 	bool	operator== (const Keyseq &) const;

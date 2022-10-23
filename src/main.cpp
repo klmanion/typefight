@@ -35,16 +35,18 @@ ncurses_initialize()
 	nonl();
 	intrflush(stdscr, FALSE);
 	keypad(stdscr, TRUE);
-
-	return;
 }
 
 void 
 ncurses_deinitialize()
 {
+#ifdef DEBUG
+	std::cerr << "endwin() pre" << std::endl;
+#endif /* !DEBUG */
 	endwin();
-
-	return;
+#ifdef DEBUG
+	std::cerr << "endwin() post" << std::endl;
+#endif /* !DEBUG */
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

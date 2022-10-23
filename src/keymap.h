@@ -17,14 +17,14 @@ using std::string;
 
 class Keymap
 {
-	vector<const Keybind *>	_kbds;
+	vector<Keybind>	_kbds;
 
 public:
 	~Keymap();
 
-	const Keybind*	keybind_add (const Keybind *const);
-	const Keybind*	keybind_add (const Keyseq &,const Command &);
-	const Keybind*	keybind_add (const string &,const Command &);
+	void	keybind_add (const Keybind &);
+	void	keybind_add (const Keyseq &,const Command &);
+	void	keybind_add (const string &,const Command &);
 
 	int	invoke (const Keyseq &) const;
 };

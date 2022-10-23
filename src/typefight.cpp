@@ -16,11 +16,8 @@ typefight()
 	int ch;
 	Entity hero(0,0);
 	Keymap keymap;
-	Keybind *move_down = new Keybind("j", [&]() {hero.move(1,0); return 1;});
-	Keybind *move_up = new Keybind("k", [&]() {hero.move(-1,0); return 1;});
-
-	keymap.keybind_add(move_down);
-	keymap.keybind_add(move_up);
+	keymap.keybind_add(Keybind("j", [&]() {hero.move(1,0); return 1;}));
+	keymap.keybind_add("k", [&]() {hero.move(-1,0); return 1;});
 
 	for (bool running=true; running; )
 	    {
@@ -33,8 +30,8 @@ typefight()
 			break;;
 
 		default:
-		    keymap.invoke(Keyseq(to_string(ch)));
-		    break;;
+			keymap.invoke(Keyseq(to_string(ch)));
+			break;;
 		}
 
 		clear();

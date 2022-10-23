@@ -9,33 +9,31 @@
 
 Keymap::~Keymap()
 {
-	for (auto it = _kbds.begin(); it != _kbds.end(); ++it)
-	    delete *it;
+//	for (auto it = _kbds.begin(); it != _kbds.end(); ++it)
+//	    delete *it;
 }
 
-const Keybind*
+void
 Keymap::keybind_add(
-    const Keybind *const	keybind)
+    const Keybind	&keybind)
 {
 	_kbds.push_back(keybind);
-
-	return keybind;
 }
 
-const Keybind*
+void
 Keymap::keybind_add(
     const Keyseq	&kseq,
     const Command	&com)
 {
-	return keybind_add(new Keybind(kseq, com));
+	keybind_add(Keybind(kseq, com));
 }
 
-const Keybind*
+void
 Keymap::keybind_add(
     const string	&str,
     const Command	&com)
 {
-	return keybind_add(new Keybind(str, com));
+	keybind_add(Keybind(str, com));
 }
 
 int
@@ -44,12 +42,12 @@ Keymap::invoke(
 {
 	for (auto it = _kbds.begin(); it != _kbds.end(); ++it)
 	    {
-		if (**it == kseq)
+		if (*it == kseq)
 		    {
 #ifdef DEBUG
 			std::cerr << "match" << std::endl;
 #endif /* !DEBUG */
-			return (*it)->call();
+			return it->call();
 		    }
 	    }
 
