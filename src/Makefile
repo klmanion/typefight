@@ -24,7 +24,9 @@ binprefix =
 
 bindir = $(prefix)/bin
 
-SRCS_C = main.cpp typefight.cpp
+SRCS_C = main.cpp typefight.cpp \
+	 entity.cpp \
+	 keymap.cpp keybind.cpp keyseq.cpp command.cpp
 SRCS = $(SRCS_C)
 OBJS = $(SRCS_C:.cpp=.o)
 
@@ -59,7 +61,7 @@ clean:
 	rm -f *.o
 
 realclean: clean
-	rm -f templ TAGS tags
+	rm -f typefight TAGS tags
 
 distclean: realclean
 
@@ -68,4 +70,9 @@ typefight: $(OBJS)
 
 main.o: typefight.o
 
-## main.o: templ.o
+typefight.o: entity.o keymap.o
+
+keymap.o: keybind.o
+
+keybind.o: keyseq.o command.o
+

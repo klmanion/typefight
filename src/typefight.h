@@ -4,17 +4,11 @@
 #ifndef _TYPEFIGHT_H_
 #define _TYPEFIGHT_H_
 
-class Typefight
-{
-	/* player position */
-	int	y, x;
+#include <cstdlib>
 
-public:
-	Typefight (void);
-	~Typefight (void);
-
-	int	begin (void);
-};
+__BEGIN_DECLS
+int	typefight (void);
+__END_DECLS
 
 #endif /* !_TYPEFIGHT_H_ */
 
