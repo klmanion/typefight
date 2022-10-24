@@ -16,12 +16,13 @@ int
 typefight()
 {
 	int ch;
-	char s[80];
 	Entity hero(0,0);
 
 	Keybind keybind_tab[] = {
 		Keybind("j",	[&]() {hero.move(1,0); return 1;}),
-		Keybind("k",	[&]() {hero.move(-1,0); return 1;})
+		Keybind("k",	[&]() {hero.move(-1,0); return 1;}),
+		Keybind("h",	[&]() {hero.move(0,-1); return 1;}),
+		Keybind("l",	[&]() {hero.move(0,1); return 1;}),
 	};
 
 	Keymap keymap;
