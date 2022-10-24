@@ -7,10 +7,12 @@
 
 #include <cstdlib>
 #include <string>
+#include <tuple>
 #include "keyseq.h"
 #include "command.h"
 
 using std::string;
+using std::tuple, std::get;
 
 class Keybind
 {
