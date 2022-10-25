@@ -23,6 +23,10 @@ typefight()
 		Keybind("k",	[&]() {hero.move(-1,0); return 1;}),
 		Keybind("h",	[&]() {hero.move(0,-1); return 1;}),
 		Keybind("l",	[&]() {hero.move(0,1); return 1;}),
+		Keybind("y",	[&]() {hero.move(-1,-1); return 1;}),
+		Keybind("u",	[&]() {hero.move(-1,1); return 1;}),
+		Keybind("b",	[&]() {hero.move(1,-1); return 1;}),
+		Keybind("n",	[&]() {hero.move(1,1); return 1;}),
 	};
 
 	Keymap keymap;

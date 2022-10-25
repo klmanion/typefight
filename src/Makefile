@@ -25,8 +25,8 @@ binprefix =
 bindir = $(prefix)/bin
 
 SRCS_C = main.cpp typefight.cpp \
-	 entity.cpp \
-	 keymap.cpp keybind.cpp keyseq.cpp command.cpp
+	 keymap.cpp keybind.cpp keyseq.cpp command.cpp \
+	 entity.cpp
 SRCS = $(SRCS_C)
 OBJS = $(SRCS_C:.cpp=.o)
 
