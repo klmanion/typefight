@@ -19,6 +19,7 @@ public:
 	int	pos_y (void);
 	int	pos_x (void);
 
+	void	move_to (const int,const int);
 	void	move (const int,const int);
 };
 

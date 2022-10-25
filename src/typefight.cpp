@@ -6,8 +6,8 @@
 #include <iostream>
 #include <ncurses.h>
 #include <tuple>
-#include "entity.h"
 #include "keymap.h"
+#include "world.h"
 
 using std::to_string;
 using std::tuple, std::make_tuple;
@@ -17,16 +17,17 @@ typefight()
 {
 	int ch;
 	Entity hero(0,0);
+	World world;
 
 	Keybind keybind_tab[] = {
-		Keybind("j",	[&]() {hero.move(1,0); return 1;}),
-		Keybind("k",	[&]() {hero.move(-1,0); return 1;}),
-		Keybind("h",	[&]() {hero.move(0,-1); return 1;}),
-		Keybind("l",	[&]() {hero.move(0,1); return 1;}),
-		Keybind("y",	[&]() {hero.move(-1,-1); return 1;}),
-		Keybind("u",	[&]() {hero.move(-1,1); return 1;}),
-		Keybind("b",	[&]() {hero.move(1,-1); return 1;}),
-		Keybind("n",	[&]() {hero.move(1,1); return 1;}),
+		Keybind("j",	[&]() {world.move(hero, 1,0); return 1;}),
+		Keybind("k",	[&]() {world.move(hero, -1,0); return 1;}),
+		Keybind("h",	[&]() {world.move(hero, 0,-1); return 1;}),
+		Keybind("l",	[&]() {world.move(hero, 0,1); return 1;}),
+		Keybind("y",	[&]() {world.move(hero, -1,-1); return 1;}),
+		Keybind("u",	[&]() {world.move(hero, -1,1); return 1;}),
+		Keybind("b",	[&]() {world.move(hero, 1,-1); return 1;}),
+		Keybind("n",	[&]() {world.move(hero, 1,1); return 1;}),
 	};
 
 	Keymap keymap;
