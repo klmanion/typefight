@@ -26,7 +26,7 @@ bindir = $(prefix)/bin
 
 SRCS_C = main.cpp typefight.cpp \
 	 keymap.cpp keybind.cpp keyseq.cpp command.cpp \
-	 entity.cpp
+	 world.cpp entity.cpp
 SRCS = $(SRCS_C)
 OBJS = $(SRCS_C:.cpp=.o)
 
@@ -70,9 +70,11 @@ typefight: $(OBJS)
 
 main.o: typefight.o
 
-typefight.o: entity.o keymap.o
+typefight.o: keymap.o world.o
 
 keymap.o: keybind.o
 
 keybind.o: keyseq.o command.o
+
+world.o: entity.o
 
