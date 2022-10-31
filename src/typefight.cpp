@@ -5,13 +5,9 @@
 
 #include <iostream>
 #include <ncurses.h>
-#include <tuple>
 #include "keymap.h"
 #include "world.h"
 
-using std::to_string;
-using std::tuple, std::make_tuple;
-using std::move;
 
 int
 typefight()
@@ -33,7 +29,7 @@ typefight()
 
 	Keymap keymap;
 	for (size_t i = 0; i < sizeof(keybind_tab)/sizeof(*keybind_tab); ++i)
-	    keymap.keybind_add(move(keybind_tab[i]));
+	    keymap.keybind_add(keybind_tab[i]);
 
 	for (bool running=true; running; )
 	    {

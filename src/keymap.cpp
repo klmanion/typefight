@@ -17,7 +17,7 @@ Keymap::~Keymap()
 
 void
 Keymap::keybind_add(
-    const Keybind	&&keybind)
+    const Keybind	&keybind)
 {
 	_kbds.push_back(keybind);
 }
