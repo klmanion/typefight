@@ -38,7 +38,7 @@ public:
 
 	~Keybind();
 
-	Keybind&	operator= (Keybind &&) = default;
+//	Keybind&	operator= (Keybind &&) = default;
 
 	bool	operator== (const Keyseq &) const;
 

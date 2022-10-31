@@ -21,14 +21,14 @@ typefight()
 	World world;
 
 	Keybind keybind_tab[] = {
-		new Keybind("j",	[&]() {world.move(hero, 1,0); return 1;}),
-		new Keybind("k",	[&]() {world.move(hero, -1,0); return 1;}),
-		new Keybind("h",	[&]() {world.move(hero, 0,-1); return 1;}),
-		new Keybind("l",	[&]() {world.move(hero, 0,1); return 1;}),
-		new Keybind("y",	[&]() {world.move(hero, -1,-1); return 1;}),
-		new Keybind("u",	[&]() {world.move(hero, -1,1); return 1;}),
-		new Keybind("b",	[&]() {world.move(hero, 1,-1); return 1;}),
-		new Keybind("n",	[&]() {world.move(hero, 1,1); return 1;}),
+		Keybind("j",	[&]() {world.move(hero, 1,0); return 1;}),
+		Keybind("k",	[&]() {world.move(hero, -1,0); return 1;}),
+		Keybind("h",	[&]() {world.move(hero, 0,-1); return 1;}),
+		Keybind("l",	[&]() {world.move(hero, 0,1); return 1;}),
+		Keybind("y",	[&]() {world.move(hero, -1,-1); return 1;}),
+		Keybind("u",	[&]() {world.move(hero, -1,1); return 1;}),
+		Keybind("b",	[&]() {world.move(hero, 1,-1); return 1;}),
+		Keybind("n",	[&]() {world.move(hero, 1,1); return 1;}),
 	};
 
 	Keymap keymap;
