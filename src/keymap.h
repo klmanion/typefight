@@ -22,7 +22,7 @@ class Keymap
 public:
 	~Keymap();
 
-	void	keybind_add (const Keybind &);
+	void	keybind_add (const Keybind &&);
 	void	keybind_add (const Keyseq &,const Command &);
 	void	keybind_add (const string &,const Command &);
 

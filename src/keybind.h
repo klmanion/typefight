@@ -11,6 +11,10 @@
 #include "keyseq.h"
 #include "command.h"
 
+#ifdef DEBUG
+#include <iostream>
+#endif /* !DEBUG */
+
 using std::string;
 using std::tuple, std::get;
 
@@ -21,13 +25,20 @@ class Keybind
 
 public:
 	Keybind (const Keyseq &seq,const Command &com)
-		: _seq(seq), _com(com) {}
+		: _seq(seq), _com(com)
+		    {
+#ifdef DEBUG
+			std::cerr << "keybind alloc " << this << std::endl;
+#endif /* !DEBUG */
+		    }
 	Keybind (const string &str,const Command &com)
 		: Keybind(Keyseq(str), com) {}
 	Keybind (const char *const cstr,const Command &com)
 		: Keybind(string(cstr), com) {}
 
 	~Keybind();
+
+	Keybind&	operator= (Keybind &&) = default;
 
 	bool	operator== (const Keyseq &) const;
 

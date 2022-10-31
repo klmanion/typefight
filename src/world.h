@@ -12,7 +12,7 @@ using std::vector;
 
 class World
 {
-	vector<Entity>	entity_lst;
+	vector<Entity>	entity_lst;	// TODO this should be a Entity *
 public:
 	bool	move_check (const int,const int);
 	int	move_to (Entity&,const int,const int);

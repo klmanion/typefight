@@ -7,6 +7,8 @@
 #include <iostream>
 #endif /* !DEBUG */
 
+using std::move;
+
 Keymap::~Keymap()
 {
 //	for (auto it = _kbds.begin(); it != _kbds.end(); ++it)
@@ -15,7 +17,7 @@ Keymap::~Keymap()
 
 void
 Keymap::keybind_add(
-    const Keybind	&keybind)
+    const Keybind	&&keybind)
 {
 	_kbds.push_back(keybind);
 }
@@ -33,7 +35,7 @@ Keymap::keybind_add(
     const string	&str,
     const Command	&com)
 {
-	keybind_add(Keybind(str, com));
+	keybind_add(Keybind(str, com)); // this advances to decompose the string
 }
 
 int
