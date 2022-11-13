@@ -16,6 +16,9 @@ class Keyseq
 
 public:
 	Keyseq(const string str) : _seq(str) {}
+	Keyseq(const int ncurs_ch)
+		: Keyseq(string(1, (char)(ncurs_ch & 0x7F)))
+		    {}	/* ncurses input */
 
 	bool	operator== (const Keyseq &) const;
 	bool	operator== (const string &) const;
