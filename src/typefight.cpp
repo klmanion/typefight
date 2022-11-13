@@ -42,7 +42,6 @@ typefight()
 			break;;
 
 		default:
-//			keymap.invoke(Keyseq(string(1, (char)(ch & 0x7F))));	// TODO accept ncurses output for keyseq ctor
 			keymap.invoke(Keyseq(ch));
 			break;;
 		}
