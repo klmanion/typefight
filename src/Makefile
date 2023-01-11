@@ -10,7 +10,7 @@ INSTALL = /usr/local/bin/install -c
 INSTALLDATA = /usr/local/bin/install -c -m 644
 
 LANG = c++
-STD = c++20
+STD = c++17
 CDEBUG = -g
 CFLAGS = $(CDEBUG) -Wall -pedantic -O2
 DEFS = -DDEBUG
