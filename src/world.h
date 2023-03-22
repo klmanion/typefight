@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <vector>
 #include "entity.h"
+#include "direction.h"
 
 using std::vector;
 
@@ -17,6 +18,7 @@ public:
 	bool	move_check (const int,const int);
 	int	move_to (Entity&,const int,const int);
 	int	move (Entity&,const int,const int);
+	int	move (Entity&,const direction_t);
 };
 
 #endif /* !_WORLD_H_ */

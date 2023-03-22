@@ -8,7 +8,6 @@
 #include "keymap.h"
 #include "world.h"
 
-
 int
 typefight()
 {
@@ -17,14 +16,14 @@ typefight()
 	World world;
 
 	Keybind keybind_tab[] = {
-		Keybind("j",	[&]() {world.move(hero, 1,0); return 1;}),
-		Keybind("k",	[&]() {world.move(hero, -1,0); return 1;}),
-		Keybind("h",	[&]() {world.move(hero, 0,-1); return 1;}),
-		Keybind("l",	[&]() {world.move(hero, 0,1); return 1;}),
-		Keybind("y",	[&]() {world.move(hero, -1,-1); return 1;}),
-		Keybind("u",	[&]() {world.move(hero, -1,1); return 1;}),
-		Keybind("b",	[&]() {world.move(hero, 1,-1); return 1;}),
-		Keybind("n",	[&]() {world.move(hero, 1,1); return 1;}),
+		Keybind("j",	[&]() {world.move(hero, DIRCT_S); return 1;}),
+		Keybind("k",	[&]() {world.move(hero, DIRCT_N); return 1;}),
+		Keybind("h",	[&]() {world.move(hero, DIRCT_W); return 1;}),
+		Keybind("l",	[&]() {world.move(hero, DIRCT_E); return 1;}),
+		Keybind("y",	[&]() {world.move(hero, DIRCT_NW); return 1;}),
+		Keybind("u",	[&]() {world.move(hero, DIRCT_NE); return 1;}),
+		Keybind("b",	[&]() {world.move(hero, DIRCT_SW); return 1;}),
+		Keybind("n",	[&]() {world.move(hero, DIRCT_SE); return 1;}),
 	};
 
 	Keymap keymap;

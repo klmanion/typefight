@@ -40,4 +40,11 @@ World::move(
 	return move_to(e, ny,nx);
 }
 
+int
+World::move(Entity&		e,
+	    const direction_t	d)
+{
+	return move(e, direction_coord_y(d),direction_coord_x(d));
+}
+
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

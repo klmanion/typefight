@@ -26,12 +26,13 @@ bindir = $(prefix)/bin
 
 SRCS_C = main.cpp typefight.cpp \
 	 keymap.cpp keybind.cpp keyseq.cpp command.cpp \
+	 movement.cpp direction.cpp \
 	 world.cpp entity.cpp
 SRCS = $(SRCS_C)
 OBJS = $(SRCS_C:.cpp=.o)
 
 ## add README and LICENSE to this
-AUX = 
+AUX = LICENSE
 
 .ONESHELL:
 
@@ -76,5 +77,6 @@ keymap.o: keybind.o
 
 keybind.o: keyseq.o command.o
 
-world.o: entity.o
+world.o: entity.o movement.o
 
+movement.o: direction.o
