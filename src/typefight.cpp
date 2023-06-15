@@ -7,12 +7,13 @@
 #include <ncurses.h>
 #include "keymap.h"
 #include "world.h"
+#include "hero.h"
 
 int
 typefight()
 {
 	int ch;
-	Entity hero(0,0);
+	Hero hero(0,0);
 	World world;
 
 	Keybind keybind_tab[] = {
@@ -46,7 +47,7 @@ typefight()
 		}
 
 		clear();
-		mvaddch(hero.pos_y(),hero.pos_x(), 'o');
+		hero.draw();
 	    }
 
 	return EXIT_SUCCESS;
