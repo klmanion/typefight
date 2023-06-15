@@ -13,18 +13,20 @@ int
 typefight()
 {
 	int ch;
-	Hero hero(0,0);
+	Hero *plr= new Hero(0,0);
 	World world;
 
+	world.player_set(plr);
+
 	Keybind keybind_tab[] = {
-		Keybind("j",	[&]() {world.move(hero, DIRCT_S); return 1;}),
-		Keybind("k",	[&]() {world.move(hero, DIRCT_N); return 1;}),
-		Keybind("h",	[&]() {world.move(hero, DIRCT_W); return 1;}),
-		Keybind("l",	[&]() {world.move(hero, DIRCT_E); return 1;}),
-		Keybind("y",	[&]() {world.move(hero, DIRCT_NW); return 1;}),
-		Keybind("u",	[&]() {world.move(hero, DIRCT_NE); return 1;}),
-		Keybind("b",	[&]() {world.move(hero, DIRCT_SW); return 1;}),
-		Keybind("n",	[&]() {world.move(hero, DIRCT_SE); return 1;}),
+		Keybind("j",	[&]() {world.move(world.player(), DIRCT_S); return 1;}),
+		Keybind("k",	[&]() {world.move(world.player(), DIRCT_N); return 1;}),
+		Keybind("h",	[&]() {world.move(world.player(), DIRCT_W); return 1;}),
+		Keybind("l",	[&]() {world.move(world.player(), DIRCT_E); return 1;}),
+		Keybind("y",	[&]() {world.move(world.player(), DIRCT_NW); return 1;}),
+		Keybind("u",	[&]() {world.move(world.player(), DIRCT_NE); return 1;}),
+		Keybind("b",	[&]() {world.move(world.player(), DIRCT_SW); return 1;}),
+		Keybind("n",	[&]() {world.move(world.player(), DIRCT_SE); return 1;}),
 	};
 
 	Keymap keymap;
@@ -47,7 +49,7 @@ typefight()
 		}
 
 		clear();
-		hero.draw();
+		world.draw();
 	    }
 
 	return EXIT_SUCCESS;
