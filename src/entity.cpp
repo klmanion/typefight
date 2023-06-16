@@ -43,7 +43,6 @@ Entity::move(
 void
 Entity::draw()
 {
-	mvaddch(10,10, 'x');
 	return;
 }
 

@@ -16,7 +16,8 @@ class World
 
 public:
 	~World() {
-		
+		for (auto& e : _entity_lst)
+		    delete e;
 	}
 
 	Entity*	add_entity (Entity *);
