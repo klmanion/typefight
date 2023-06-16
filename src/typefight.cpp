@@ -3,11 +3,7 @@
 
 #include "typefight.h"
 
-#include <iostream>
 #include <ncurses.h>
-#include "keymap.h"
-#include "world.h"
-#include "hero.h"
 
 int
 typefight(
@@ -34,7 +30,7 @@ typefight(
 	clear();
 	world.draw();
 
-	return typefight(model);
+	return typefight(model.step());
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

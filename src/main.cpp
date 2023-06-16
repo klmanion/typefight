@@ -3,7 +3,6 @@
  * on: 20 Sept 2022
  */
 
-#include <cstdlib>
 #include <clocale>
 #include <iostream>
 #include <ncurses.h>

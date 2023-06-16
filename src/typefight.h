@@ -4,30 +4,7 @@
 #ifndef _TYPEFIGHT_H_
 #define _TYPEFIGHT_H_
 
-#include <cstdlib>
-#include "keymap.h"
-#include "world.h"
-#include "hero.h"
-
-struct Model
-{
-	Keymap	keymap;
-
-	World	world;
-
-	Hero	*plr;
-
-	int	steps;
-
-	Model() {
-		plr = (Hero *)nullptr;
-		steps = 0;
-	}
-
-	~Model() {
-
-	}
-};
+#include "model.h"
 
 __BEGIN_DECLS
 int	typefight (Model &);
