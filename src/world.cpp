@@ -5,7 +5,7 @@
 
 Entity*
 World::add_entity(
-    Entity *const	e)
+    Entity	*e)
 {
 	_entity_lst.push_back(e);
 	return e;
@@ -59,14 +59,8 @@ World::move(
 void
 World::draw()
 {
-	for (auto it = _entity_lst.begin(); *it; ++it)
-	    {
-		Entity *e;
-
-		e = *it;
-
-		e->draw();
-	    }
+	for (auto& e : _entity_lst)
+	    e->draw();
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

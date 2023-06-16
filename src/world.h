@@ -4,7 +4,6 @@
 #ifndef _WORLD_H_
 #define _WORLD_H_
 
-#include <cstdlib>
 #include <vector>
 #include "entity.h"
 #include "direction.h"
@@ -13,10 +12,14 @@ using std::vector;
 
 class World
 {
-	vector<Entity *>	_entity_lst;	/* TODO free in dtor */
+	vector<Entity *>	_entity_lst;
 
 public:
-	Entity*	add_entity (Entity *const);
+	~World() {
+		
+	}
+
+	Entity*	add_entity (Entity *);
 
 	bool	move_check (const int,const int);
 	int	move_to (Entity *const,const int,const int);

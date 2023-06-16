@@ -25,7 +25,7 @@ struct Model
 	}
 
 	~Model() {
-
+		delete plr;
 	}
 };
 

@@ -11,7 +11,6 @@ class Hero : public Entity
 
 public:
 	Hero (const int pos_y,const int pos_x) : Entity(pos_y, pos_x) {}
-	~Hero () {}
 
 	void	draw (void);
 };
