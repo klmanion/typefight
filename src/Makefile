@@ -78,7 +78,7 @@ keymap.o: keybind.o
 
 keybind.o: keyseq.o command.o
 
-world.o: entity.o hero.o movement.o
+world.o: entity.o movement.o
 
 hero.o: entity.o
 

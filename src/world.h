@@ -7,22 +7,16 @@
 #include <cstdlib>
 #include <vector>
 #include "entity.h"
-#include "hero.h"
 #include "direction.h"
 
 using std::vector;
 
 class World
 {
-	Hero	*_h0;
-
-	vector<Entity>	entity_lst;	// TODO this should be a Entity *
+	vector<Entity *>	_entity_lst;
 
 public:
-	World () : _h0((Hero *)nullptr) {}
-
-	Hero*	player (void);
-	Hero*	player_set (Hero *const);	// TODO change to move ctor
+	Entity*	add_entity (Entity *const);
 
 	bool	move_check (const int,const int);
 	int	move_to (Entity *const,const int,const int);

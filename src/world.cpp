@@ -3,17 +3,12 @@
 
 #include "world.h"
 
-Hero*
-World::player()
+Entity*
+World::add_entity(
+    Entity *const	e)
 {
-	return _h0;
-}
-
-Hero*
-World::player_set(
-    Hero *const	h)
-{
-	return (_h0 = h);
+	_entity_lst.push_back(e);
+	return e;
 }
 
 bool
@@ -64,7 +59,14 @@ World::move(
 void
 World::draw()
 {
-	_h0->draw();
+	for (auto it = _entity_lst.begin(); *it; ++it)
+	    {
+		Entity *e;
+
+		e = *it;
+
+		e->draw();
+	    }
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

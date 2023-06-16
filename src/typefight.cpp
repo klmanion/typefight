@@ -13,20 +13,20 @@ int
 typefight()
 {
 	int ch;
-	Hero *plr= new Hero(0,0);
 	World world;
+	Hero *plr;
 
-	world.player_set(plr);
+	plr = (Hero *)world.add_entity(new Hero(0,0));
 
 	Keybind keybind_tab[] = {
-		Keybind("j",	[&]() {world.move(world.player(), DIRCT_S); return 1;}),
-		Keybind("k",	[&]() {world.move(world.player(), DIRCT_N); return 1;}),
-		Keybind("h",	[&]() {world.move(world.player(), DIRCT_W); return 1;}),
-		Keybind("l",	[&]() {world.move(world.player(), DIRCT_E); return 1;}),
-		Keybind("y",	[&]() {world.move(world.player(), DIRCT_NW); return 1;}),
-		Keybind("u",	[&]() {world.move(world.player(), DIRCT_NE); return 1;}),
-		Keybind("b",	[&]() {world.move(world.player(), DIRCT_SW); return 1;}),
-		Keybind("n",	[&]() {world.move(world.player(), DIRCT_SE); return 1;}),
+		Keybind("j",	[&]() {world.move(plr, DIRCT_S); return 1;}),
+		Keybind("k",	[&]() {world.move(plr, DIRCT_N); return 1;}),
+		Keybind("h",	[&]() {world.move(plr, DIRCT_W); return 1;}),
+		Keybind("l",	[&]() {world.move(plr, DIRCT_E); return 1;}),
+		Keybind("y",	[&]() {world.move(plr, DIRCT_NW); return 1;}),
+		Keybind("u",	[&]() {world.move(plr, DIRCT_NE); return 1;}),
+		Keybind("b",	[&]() {world.move(plr, DIRCT_SW); return 1;}),
+		Keybind("n",	[&]() {world.move(plr, DIRCT_SE); return 1;}),
 	};
 
 	Keymap keymap;
@@ -51,6 +51,8 @@ typefight()
 		clear();
 		world.draw();
 	    }
+
+	delete plr;
 
 	return EXIT_SUCCESS;
 }

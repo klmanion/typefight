@@ -6,8 +6,6 @@
 #ifndef _ENTITY_H_
 #define _ENTITY_H_
 
-#include <cstdlib>
-
 class Entity
 {
 	int	_pos_y;
@@ -21,6 +19,8 @@ public:
 
 	void	move_to (const int,const int);
 	void	move (const int,const int);
+
+	virtual void	draw (void);
 };
 
 #endif /* !_ENTITY_H_ */

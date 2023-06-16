@@ -38,4 +38,10 @@ Entity::move(
 	move_to(ny,nx);
 }
 
+void
+Entity::draw()
+{
+	return;
+}
+
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */
