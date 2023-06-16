@@ -13,7 +13,7 @@ using std::vector;
 
 class World
 {
-	vector<Entity *>	_entity_lst;
+	vector<Entity *>	_entity_lst;	/* TODO free in dtor */
 
 public:
 	Entity*	add_entity (Entity *const);

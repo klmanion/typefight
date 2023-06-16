@@ -13,6 +13,7 @@ class Entity
 
 public:
 	Entity (const int pos_y,const int pos_x) : _pos_y(pos_y), _pos_x(pos_x) {}
+	~Entity () {}
 
 	int	pos_y (void);
 	int	pos_x (void);

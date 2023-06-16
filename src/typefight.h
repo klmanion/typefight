@@ -5,9 +5,32 @@
 #define _TYPEFIGHT_H_
 
 #include <cstdlib>
+#include "keymap.h"
+#include "world.h"
+#include "hero.h"
+
+struct Model
+{
+	Keymap	keymap;
+
+	World	world;
+
+	Hero	*plr;
+
+	int	steps;
+
+	Model() {
+		plr = (Hero *)nullptr;
+		steps = 0;
+	}
+
+	~Model() {
+
+	}
+};
 
 __BEGIN_DECLS
-int	typefight (void);
+int	typefight (Model &);
 __END_DECLS
 
 #endif /* !_TYPEFIGHT_H_ */

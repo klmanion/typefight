@@ -10,51 +10,31 @@
 #include "hero.h"
 
 int
-typefight()
+typefight(
+    Model	&model)
 {
 	int ch;
-	World world;
-	Hero *plr;
 
-	plr = (Hero *)world.add_entity(new Hero(0,0));
+	Keymap &keymap = model.keymap;
+	World &world = model.world;
 
-	Keybind keybind_tab[] = {
-		Keybind("j",	[&]() {world.move(plr, DIRCT_S); return 1;}),
-		Keybind("k",	[&]() {world.move(plr, DIRCT_N); return 1;}),
-		Keybind("h",	[&]() {world.move(plr, DIRCT_W); return 1;}),
-		Keybind("l",	[&]() {world.move(plr, DIRCT_E); return 1;}),
-		Keybind("y",	[&]() {world.move(plr, DIRCT_NW); return 1;}),
-		Keybind("u",	[&]() {world.move(plr, DIRCT_NE); return 1;}),
-		Keybind("b",	[&]() {world.move(plr, DIRCT_SW); return 1;}),
-		Keybind("n",	[&]() {world.move(plr, DIRCT_SE); return 1;}),
-	};
+	switch ((ch=getch())) {
+	case ERR:	/* no input */
+		break;;
 
-	Keymap keymap;
-	for (size_t i = 0; i < sizeof(keybind_tab)/sizeof(*keybind_tab); ++i)
-	    keymap.keybind_add(keybind_tab[i]);
+	case KEY_F(1):
+		return EXIT_SUCCESS;
+		break;;
 
-	for (bool running=true; running; )
-	    {
-		switch ((ch=getch())) {
-		case ERR:	/* no input */
-			break;;
+	default:
+		keymap.invoke(Keyseq(ch));
+		break;;
+	}
 
-		case KEY_F(1):
-			running = false;
-			break;;
+	clear();
+	world.draw();
 
-		default:
-			keymap.invoke(Keyseq(ch));
-			break;;
-		}
-
-		clear();
-		world.draw();
-	    }
-
-	delete plr;
-
-	return EXIT_SUCCESS;
+	return typefight(model);
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

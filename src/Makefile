@@ -72,7 +72,7 @@ typefight: $(OBJS)
 
 main.o: typefight.o
 
-typefight.o: keymap.o world.o
+typefight.o: keymap.o world.o hero.o
 
 keymap.o: keybind.o
 
