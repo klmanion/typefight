@@ -6,6 +6,7 @@
 
 #include "keymap.h"
 #include "world.h"
+#include "clock.h"
 #include "hero.h"
 
 struct Model
@@ -14,13 +15,12 @@ struct Model
 
 	World	world;
 
-	Hero	*plr;
+	Clock	clock;
 
-	int	ticks;
+	Hero	*plr;
 
 	Model() {
 		plr = (Hero *)nullptr;
-		ticks = 0;
 	}
 
 	~Model() {

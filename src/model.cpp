@@ -6,7 +6,7 @@
 Model&
 Model::step()
 {
-	++ticks;
+	clock.tick();
 
 	return *this;
 }

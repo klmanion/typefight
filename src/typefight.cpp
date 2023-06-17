@@ -10,9 +10,11 @@ typefight(
     Model	&model)
 {
 	int ch;
+	char b[1024];
 
 	Keymap &keymap = model.keymap;
 	World &world = model.world;
+	Clock &clock = model.clock;
 
 	switch ((ch=getch())) {
 	case ERR:	/* no input */
@@ -20,6 +22,10 @@ typefight(
 
 	case KEY_F(1):
 		return EXIT_SUCCESS;
+		break;;
+
+	case ' ':
+		clock.toggle();
 		break;;
 
 	default:
@@ -30,6 +36,9 @@ typefight(
 	clear();
 	world.draw();
 
+	sprintf(b, "%d/%d", clock.steps(), clock.ticks());
+	mvaddstr(LINES-1,COLS-10, b);
+	
 	return typefight(model.step());
 }
 
