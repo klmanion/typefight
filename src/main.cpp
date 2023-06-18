@@ -29,14 +29,30 @@ main(
 	Hero *plr = model.plr;
 
 	Keybind keybind_tab[] = {
-		Keybind("j",	[&]() {world.move(plr, DIRCT_S); return 1;}),
-		Keybind("k",	[&]() {world.move(plr, DIRCT_N); return 1;}),
-		Keybind("h",	[&]() {world.move(plr, DIRCT_W); return 1;}),
-		Keybind("l",	[&]() {world.move(plr, DIRCT_E); return 1;}),
-		Keybind("y",	[&]() {world.move(plr, DIRCT_NW); return 1;}),
-		Keybind("u",	[&]() {world.move(plr, DIRCT_NE); return 1;}),
-		Keybind("b",	[&]() {world.move(plr, DIRCT_SW); return 1;}),
-		Keybind("n",	[&]() {world.move(plr, DIRCT_SE); return 1;}),
+		Keybind("j",
+			[&]() {world.add_movement(Movement(plr, DIRCT_S, 1));
+				return 1;}),
+		Keybind("k",
+			[&]() {world.add_movement(Movement(plr, DIRCT_N, 1));
+				return 1;}),
+		Keybind("h",
+			[&]() {world.add_movement(Movement(plr, DIRCT_W, 1));
+				return 1;}),
+		Keybind("l",
+			[&]() {world.add_movement(Movement(plr, DIRCT_E, 1));
+				return 1;}),
+		Keybind("y",
+			[&]() {world.add_movement(Movement(plr, DIRCT_NW, 1));
+				return 1;}),
+		Keybind("u",
+			[&]() {world.add_movement(Movement(plr, DIRCT_NE, 1));
+				return 1;}),
+		Keybind("b",
+			[&]() {world.add_movement(Movement(plr, DIRCT_SW, 1));
+				return 1;}),
+		Keybind("n",
+			[&]() {world.add_movement(Movement(plr, DIRCT_SE, 1));
+				return 1;}),
 	};
 
 	for (size_t i = 0; i < sizeof(keybind_tab)/sizeof(*keybind_tab); ++i)

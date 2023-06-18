@@ -41,6 +41,13 @@ Entity::move(
 }
 
 void
+Entity::move(
+    direction_t	d)
+{
+	move(direction_coord_y(d),direction_coord_x(d));
+}
+
+void
 Entity::draw()
 {
 	return;

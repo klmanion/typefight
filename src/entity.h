@@ -6,6 +6,8 @@
 #ifndef _ENTITY_H_
 #define _ENTITY_H_
 
+#include "direction.h"
+
 class Entity
 {
 	int	_pos_y;
@@ -20,6 +22,7 @@ public:
 
 	void	move_to (const int,const int);
 	void	move (const int,const int);
+	void	move (direction_t);
 
 	virtual void	draw (void);
 };

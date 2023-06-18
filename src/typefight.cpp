@@ -33,6 +33,8 @@ typefight(
 		break;;
 	}
 
+	world.step();
+
 	clear();
 	world.draw();
 

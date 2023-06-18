@@ -11,6 +11,13 @@ World::add_entity(
 	return e;
 }
 
+void
+World::add_movement(
+    Movement	m)
+{
+	_movement_lst.push_front(m);
+}
+
 bool
 World::move_check(
     const int	y,
@@ -54,6 +61,17 @@ World::move(
     const direction_t	d)
 {
 	return move(e, direction_coord_y(d),direction_coord_x(d));
+}
+
+void
+World::step()
+{
+	for (auto& m : _movement_lst)
+	    {
+		m.step();
+	    }
+
+	_movement_lst.remove_if([] (Movement &m) { return m.is_done(); });
 }
 
 void

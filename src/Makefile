@@ -82,6 +82,8 @@ keybind.o: keyseq.o command.o
 
 world.o: entity.o movement.o
 
+entity.o: direction.o
+
 hero.o: entity.o
 
-movement.o: direction.o
+movement.o: direction.o entity.o
