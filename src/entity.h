@@ -6,8 +6,6 @@
 #ifndef _ENTITY_H_
 #define _ENTITY_H_
 
-#include <iostream>
-
 class Entity
 {
 	int	_pos_y;
