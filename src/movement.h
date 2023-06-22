@@ -16,8 +16,11 @@ class Movement
 	int		_duration;
 
 public:
-	Movement (Entity *t,direction_t dir,int dur)
+	Movement (Entity *t,const direction_t dir,const int dur)
 		: _target(t), _direction(dir), _duration(dur) {}
+
+	Movement (Entity *t,const int dur)
+		: _target(t), _direction(t->facing()), _duration(dur) {}
 
 	bool	is_done (void);
 

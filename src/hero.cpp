@@ -5,6 +5,12 @@
 
 #include <ncurses.h>
 
+Ball*
+Hero::shoot()
+{
+	return new Ball(this);
+}
+
 void
 Hero::draw()
 {

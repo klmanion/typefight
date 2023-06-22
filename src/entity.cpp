@@ -17,6 +17,17 @@ Entity::pos_x()
 	return _pos_x;
 }
 
+direction_t
+Entity::facing()
+{
+	return _facing;
+}
+
+char
+Entity::ch()
+{
+	return _ch;
+}
 
 void
 Entity::move_to(
@@ -27,6 +38,9 @@ Entity::move_to(
 	_pos_x = x;
 }
 
+/** move()
+ * 	TODO Does not update facing.
+ */
 void
 Entity::move(
     const int	dy,
@@ -42,15 +56,17 @@ Entity::move(
 
 void
 Entity::move(
-    direction_t	d)
+    const direction_t	d)
 {
+	_facing = d;
 	move(direction_coord_y(d),direction_coord_x(d));
 }
 
 void
 Entity::draw()
 {
-	return;
+	if (_ch != '\0')
+	    mvaddch(pos_y(),pos_x(), ch());
 }
 
 /* vi: set ts=8 sw=8 noexpandtab tw=79: */

@@ -53,6 +53,13 @@ main(
 		Keybind("n",
 			[&]() {world.add_movement(Movement(plr, DIRCT_SE, 1));
 				return 1;}),
+
+		Keybind("w",
+			[&]() {
+				world.add_movement(
+				    Movement(world.add_entity(plr->shoot()), -1));
+				return 1;
+			})
 	};
 
 	for (size_t i = 0; i < sizeof(keybind_tab)/sizeof(*keybind_tab); ++i)

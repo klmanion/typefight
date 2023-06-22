@@ -28,7 +28,7 @@ SRCS_C = main.cpp typefight.cpp model.cpp \
 	 keymap.cpp keybind.cpp keyseq.cpp command.cpp \
 	 movement.cpp direction.cpp \
 	 world.cpp clock.cpp \
-	 entity.cpp hero.cpp
+	 entity.cpp hero.cpp ball.cpp
 SRCS = $(SRCS_C)
 OBJS = $(SRCS_C:.cpp=.o)
 
@@ -84,6 +84,8 @@ world.o: entity.o movement.o
 
 entity.o: direction.o
 
-hero.o: entity.o
+hero.o: entity.o ball.o
+
+ball.o: entity.o
 
 movement.o: direction.o entity.o
